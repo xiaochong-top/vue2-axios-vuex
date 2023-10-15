@@ -1,16 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="box1"/>
+  <div class="box2"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { github } from '@/api/requestTest'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  created() {
+    github('').then(response=>{
+      console.log(response)
+    }).catch(err=>{
+      console.log(err)
+    })
+  },
+
 }
 </script>
 
@@ -22,5 +26,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.box1 {
+  background: bisque;
+  height: 100px;
+}
+.box2 {
+  background: gold;
+  height: 100px;
 }
 </style>
